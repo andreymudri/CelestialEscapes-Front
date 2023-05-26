@@ -1,34 +1,34 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-import Header from './components/Header.jsx';
 import backgroundImg from './assets/background.png';
-/* react-toastify */
-import dotenv from 'dotenv';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './pages/Home.jsx';
 
 
-/* const apiUrl = process.env.REACT_APP_API_URL; */
+
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Container>
-        <Header/>
-
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
+        <BrowserRouter>
+          <Routes>
+           <Route path="/" element={<Home />} />
+ {/*             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Register />} />
+            <Route path="/flights" element={<Flights />} />
+            <Route path="/hotels" element={<Hotels />} /> */}
+        </Routes>
+        </BrowserRouter>
       </Container>
     </>
   )
 }
 
 export default App;
-/* export { apiUrl }; */
+export { apiUrl };
 
   
 const Container = styled.div`

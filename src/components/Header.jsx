@@ -39,7 +39,7 @@ const HeaderContainer = styled.div`
   max-height: 80px;
   width: 100vw;
   background-color: rgba(26, 26, 26, 0.8);
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   display: flex;
