@@ -28,7 +28,7 @@ export default function Footer() {
 const FooterContainer = styled.div`
   position: fixed;
   bottom: 0px;
-  width: 100%;
+  width: 100vw;
   height: px;
   background-color: #1a1a1a;
   display: flex;
