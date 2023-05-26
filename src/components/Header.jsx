@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiFillHome, AiFillCustomerService } from "react-icons/ai";
-import { IoAirplane, IoHome } from "react-icons/io5";
+import { IoAirplane, IoHome,IoList } from "react-icons/io5";
 import iconeLogo from "../assets/northernLights.png";
 
 export default function Header() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  function toggleMenu()  {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
     <HeaderContainer>
-          <Title><img src={iconeLogo} alt="Icon"/>Celestial Escapes</Title>
-      <Menu>
+      <Title>
+        <img src={iconeLogo} alt="Icon" />
+        Celestial Escapes
+      </Title>
+      <MenuButton onClick={toggleMenu}>
+        <IoList/>
+        Menu
+      </MenuButton>
+      <MenuList isMenuOpen={isMenuOpen}>
         <MenuItem>
           <IoAirplane />
           Flights
@@ -17,19 +30,16 @@ export default function Header() {
           <AiFillHome />
           Hotels
         </MenuItem>
-      </Menu>
-      <Support>
-
         <MenuItem>
           <IoHome />
           Login
         </MenuItem>
-              <MenuItem>Register</MenuItem>
-              <MenuItem>
+        <MenuItem>Register</MenuItem>
+        <MenuItem>
           <AiFillCustomerService />
           Support
         </MenuItem>
-      </Support>
+      </MenuList>
     </HeaderContainer>
   );
 }
@@ -45,12 +55,22 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align:center;
+  text-align: center;
   padding: 0 20px;
   z-index: 1;
   font-family: "Roboto", sans-serif;
+
+  @media (max-width: 768px) {
+    height: 10%;
+    padding: 0 10px;
+  }
+
   img {
     width: 48px;
+
+    @media (max-width: 768px) {
+      width: 36px;
+    }
   }
 `;
 
@@ -58,16 +78,51 @@ const Title = styled.div`
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
-  display:flex;
-  align-items:center;
-  text-align: center;
-`;
-
-const Menu = styled.div`
   display: flex;
+  align-items: center;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
-const MenuItem = styled.div`
+const MenuButton = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    cursor: pointer;
+margin-right:2rem;
+    &:hover {
+      color: #f0f0f0;
+    }
+
+    svg {
+      font-size: 24px;
+      margin-right: 5px;
+    }
+  }
+`;
+
+const MenuList = styled.ul`
+  display: flex;
+
+  @media (max-width: 768px) {
+    display: ${({ isMenuOpen }) => (isMenuOpen ? "flex" : "none")};
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(26, 26, 26, 0.8);
+    padding: 10px 0;
+  }
+`;
+
+const MenuItem = styled.li`
   display: flex;
   align-items: center;
   margin: 0 10px;
@@ -82,9 +137,4 @@ const MenuItem = styled.div`
     font-size: 24px;
     margin-right: 5px;
   }
-`;
-
-const Support = styled.div`
-  display: flex;
-  margin-right:35px;
 `;
