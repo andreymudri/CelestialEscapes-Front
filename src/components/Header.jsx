@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { AiFillHome, AiFillCustomerService } from "react-icons/ai";
 import { IoAirplane, IoHome,IoList } from "react-icons/io5";
 import iconeLogo from "../assets/northernLights.png";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Header() {
+  const navigate = useNavigate();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   function toggleMenu()  {
@@ -22,20 +25,20 @@ export default function Header() {
         Menu
       </MenuButton>
       <MenuList isMenuOpen={isMenuOpen}>
-        <MenuItem>
+        <MenuItem onClick={()=>navigate("/flights")}>
           <IoAirplane />
           Flights
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>navigate("/hotels")}>
           <AiFillHome />
           Hotels
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>navigate("/login")}>
           <IoHome />
           Login
         </MenuItem>
-        <MenuItem>Register</MenuItem>
-        <MenuItem>
+        <MenuItem onClick={()=>navigate("/register")}>Register</MenuItem>
+        <MenuItem onClick={() => alert('Not implemented yet')}>
           <AiFillCustomerService />
           Support
         </MenuItem>
@@ -109,6 +112,7 @@ margin-right:2rem;
 
 const MenuList = styled.ul`
   display: flex;
+  margin-right:25px;
 
   @media (max-width: 768px) {
     display: ${({ isMenuOpen }) => (isMenuOpen ? "flex" : "none")};

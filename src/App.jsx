@@ -17,6 +17,7 @@ function App() {
       <Container>
         <BrowserRouter>
           <Routes>
+
             <Route path="/" element={<Home />} />
             <Route path="/flights" element={<Flights />} />
             <Route path="/hotels" element={<Hotels />} /> 

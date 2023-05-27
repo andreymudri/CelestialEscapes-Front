@@ -2,33 +2,80 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { apiUrl } from "../App.jsx";
 import { FlightCard, FlightDetails, FlightTitle, FlightsContainer,FlightDetail } from "./styles/styles.jsx";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function Flights() {
   const [flights, setFlights] = useState([]);
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(2000);
 
   useEffect(() => {
     axios
       .get(`${apiUrl}/flights`)
       .then((response) => {
-        setFlights(response.data);
+        setFlights(response.data.rows);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
-  if (flights.rows.length < 1) {
+
+  function handleMinPriceChange(event){
+    setMinPrice(event.target.value);
+  };
+
+  function handleMaxPriceChange(event) {
+    setMaxPrice(event.target.value);
+  };
+  const filteredFlights = flights.filter(
+    (flight) => flight.price >= minPrice && flight.price <= maxPrice +1
+  );
+
+  if (flights.length < 1) {
     return (
       <div>
         loading
       </div>
     )
   }
-    if (flights.rows.length >= 1) {
+    if (flights.length >= 1) {
 
-  return (
-    <FlightsContainer>
-      {flights.rows.map(flight => (
+      return (<>
+    <Header/>
+        <FlightsContainer>
+        <div>
+      <div>
+        <span>Minimum Price: </span>
+        <input
+          type="range"
+          onChange={handleMinPriceChange}
+          min={0}
+          max={1500}
+          step={50}
+          value={minPrice}
+          className="custom-slider"
+        />
+        <span>{minPrice}</span>
+      </div>
+      <div>
+        <span>Maximum Price: </span>
+        <input
+          type="range"
+          onChange={handleMaxPriceChange}
+          min={1000}
+          max={2000}
+          step={50}
+          value={maxPrice}
+          className="custom-slider"
+        />
+        <span>{maxPrice}</span>
+      </div>
+          </div>
+          <div></div>
+
+      {filteredFlights.map(flight => (
         <FlightCard key={flight.id}>
           <FlightTitle>{flight.name}</FlightTitle>
           <FlightDetails>
@@ -59,7 +106,9 @@ export default function Flights() {
           </FlightDetails>
         </FlightCard>
       ))}
-    </FlightsContainer>
+        </FlightsContainer>
+        <Footer/>
+    </>
   );
 };
 };
