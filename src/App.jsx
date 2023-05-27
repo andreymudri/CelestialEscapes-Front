@@ -3,6 +3,7 @@ import backgroundImg from './assets/background.png';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home.jsx';
 import Flights from './pages/Flights.jsx';
+import Hotels from './pages/Hotels.jsx';
 
 
 
@@ -18,10 +19,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/flights" element={<Flights />} />
+            <Route path="/hotels" element={<Hotels />} /> 
  {/*             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Register />} />
 
-            <Route path="/hotels" element={<Hotels />} /> */}
+*/}
         </Routes>
         </BrowserRouter>
       </Container>

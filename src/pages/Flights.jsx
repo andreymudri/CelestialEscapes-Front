@@ -25,7 +25,7 @@ export default function Flights() {
     )
   }
     if (flights.rows.length >= 1) {
-    console.log(flights)
+
   return (
     <FlightsContainer>
       {flights.rows.map(flight => (

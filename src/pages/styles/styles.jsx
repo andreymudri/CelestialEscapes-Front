@@ -54,7 +54,7 @@ export const FlightCard = styled.div`
   margin: 10px;
   padding: 10px;
   width: 300px;
-  background-color: rgba(26, 26, 26, 0.8);
+  background-color: rgba(26, 26, 26, 0.95);
 `;
 
 export const FlightTitle = styled.h3`
@@ -69,4 +69,40 @@ export const FlightDetail = styled.div`
 display: flex;
 justify-content: space-between;
 margin-bottom: 5px;
+`;
+export const HotelsContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top:80px;
+`;
+
+export const HotelCard = styled.div`
+ display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: rgba(26, 26, 26, 0.95);
+`;
+
+export const HotelImage = styled.img`
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
+
+export const HotelDetails = styled.div`
+  padding: 10px;
+`;
+
+export const HotelTitle = styled.h3`
+  margin: 0;
+  font-size: 1.2rem;
+`;
+
+export const HotelDescription = styled.p`
+  margin: 10px 0;
+  font-size: 0.9rem;
+  line-height: 1.2;
 `;
