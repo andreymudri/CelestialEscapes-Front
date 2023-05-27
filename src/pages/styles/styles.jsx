@@ -40,3 +40,33 @@ export const MainContainer = styled.div`
     flex-wrap: wrap;
     overflow:auto;
 `
+
+export const FlightsContainer = styled.div`
+margin-top:80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+`;
+
+export const FlightCard = styled.div`
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  background-color: rgba(26, 26, 26, 0.8);
+`;
+
+export const FlightTitle = styled.h3`
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+export const FlightDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const FlightDetail = styled.div`
+display: flex;
+justify-content: space-between;
+margin-bottom: 5px;
+`;
