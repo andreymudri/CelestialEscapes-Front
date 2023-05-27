@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <Title>
+      <Title  onClick={()=>navigate('/')}>
         <img src={iconeLogo} alt="Icon" />
         Celestial Escapes
       </Title>
@@ -33,11 +33,11 @@ export default function Header() {
           <AiFillHome />
           Hotels
         </MenuItem>
-        <MenuItem onClick={()=>navigate("/login")}>
+        <MenuItem onClick={() => alert('Not implemented yet')}>
           <IoHome />
           Login
         </MenuItem>
-        <MenuItem onClick={()=>navigate("/register")}>Register</MenuItem>
+        <MenuItem onClick={() => alert('Not implemented yet')}>Register</MenuItem>
         <MenuItem onClick={() => alert('Not implemented yet')}>
           <AiFillCustomerService />
           Support

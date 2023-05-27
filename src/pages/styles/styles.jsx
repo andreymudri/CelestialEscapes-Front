@@ -84,6 +84,7 @@ export const HotelCard = styled.div`
   border-radius: 5px;
   overflow: hidden;
   background-color: rgba(26, 26, 26, 0.95);
+  cursor: pointer;
 `;
 
 export const HotelImage = styled.img`
