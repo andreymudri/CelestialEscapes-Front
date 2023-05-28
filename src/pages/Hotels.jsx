@@ -5,6 +5,7 @@ import { HotelCard, HotelDetails, HotelTitle, HotelsContainer, HotelImage, Hotel
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import { ThreeCircles } from "react-loader-spinner";
 
 export default function Hotels() {
   const { id } = useParams();
@@ -30,7 +31,18 @@ export default function Hotels() {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><ThreeCircles
+    height="100"
+    width="100"
+    color="#4fa94d"
+    wrapperStyle={{}}
+    wrapperClass=""
+    visible={true}
+    ariaLabel="three-circles-rotating"
+    outerCircleColor=""
+    innerCircleColor=""
+    middleCircleColor=""
+  /></div>;
   }
 
   if (error) {

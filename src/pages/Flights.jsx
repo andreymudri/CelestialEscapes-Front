@@ -4,6 +4,7 @@ import { apiUrl } from "../App.jsx";
 import { FlightCard, FlightDetails, FlightTitle, FlightsContainer,FlightDetail } from "./styles/styles.jsx";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+import { ThreeCircles } from "react-loader-spinner";
 
 export default function Flights() {
   const [flights, setFlights] = useState([]);
@@ -36,7 +37,18 @@ export default function Flights() {
   if (flights.length < 1) {
     return (
       <div>
-        loading
+        <ThreeCircles
+  height="100"
+  width="100"
+  color="#4fa94d"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="three-circles-rotating"
+  outerCircleColor=""
+  innerCircleColor=""
+  middleCircleColor=""
+/>
       </div>
     )
   }

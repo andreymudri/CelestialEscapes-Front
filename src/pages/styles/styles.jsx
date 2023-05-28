@@ -16,7 +16,9 @@ export const HomeImgBox = styled.div`
     align-items: center;
     flex-direction:column;
     padding:5px;
-    img {
+      background-color: rgba(26, 26, 26, 0.95);
+
+      img {
         max-width:  7rem;
         max-height: 7rem;
         border-radius:10px;
@@ -24,7 +26,7 @@ export const HomeImgBox = styled.div`
         }
         p {
             font-size: .8rem;
-            color: #666;
+            color: white;
             text-align: center;
             margin-top: .5rem;
         }
@@ -39,13 +41,21 @@ export const MainContainer = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     overflow:auto;
+    margin-top:85px;
+    
 `
 
 export const FlightsContainer = styled.div`
-margin-top:80px;
+margin-top:85px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
+  color: white;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10px;
+  }
 `;
 
 export const FlightCard = styled.div`
@@ -74,7 +84,12 @@ export const HotelsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
-  margin-top:80px;
+  margin-top:85px;
+  color: white;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10px;
+  }
 `;
 
 export const HotelCard = styled.div`

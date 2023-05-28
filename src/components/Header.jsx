@@ -5,7 +5,6 @@ import { IoAirplane, IoHome,IoList } from "react-icons/io5";
 import iconeLogo from "../assets/northernLights.png";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Header() {
   const navigate = useNavigate();
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -61,7 +60,7 @@ const HeaderContainer = styled.div`
   text-align: center;
   padding: 0 20px;
   z-index: 1;
-  font-family: "Roboto", sans-serif;
+  font-family: 'roboto', Courier, monospace;
 
   @media (max-width: 768px) {
     height: 10%;

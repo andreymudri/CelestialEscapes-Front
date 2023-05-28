@@ -7,7 +7,6 @@ import Hotels from './pages/Hotels.jsx';
 
 
 
-
 const apiUrl = import.meta.env.VITE_API_URL;
 
 function App() {
@@ -48,6 +47,6 @@ background-image: url(${backgroundImg});
   place-items: center;
   min-height: 100vh;
   width:100vw;
-
+  font-family: 'Roboto', sans-serif;
 
 `;
